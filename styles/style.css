@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:100,300,700');
+html,
+body {
+  font-family: "roboto";
+  margin: 0;
+}
+
+#choiceLevel{
+    width: 10vw;
+    display : flex ;
+    flex-direction: column;
+}
+
+#container{
+    height : 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+
+.lvl {
+    margin: 5%;
+    border-radius: 12px;
+    border : 2px solid rgb(134, 21, 134);
+    background-color:white;
+    font-size: 20px;
+}
+
+.play {
+    border : none;
+    width : 5vw;
+    height: 5vh;
+    background: none;
+    margin-left : 10vw;
+
+}
+
+#portee {
+    border: 1px solid red;
+    margin: 0;
+}
