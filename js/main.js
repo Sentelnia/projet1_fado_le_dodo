@@ -7,6 +7,13 @@ let index;
 let ecart; // pour décaler la prochaine note à trouver
 let win;
 let gameover;
+let miniDo;
+let miniRe;
+let miniMi;
+let miniFa;
+let miniSol;
+let miniLa;
+let miniSi;
 
 /*
 *******************************
@@ -31,21 +38,42 @@ let play = document.querySelector("#newMelody");
 play.addEventListener("click", () => {
 
     if (play.className === 'play') {
+
+        player = new Player(lvlNum); //construit un nouveau player
+        console.log(player);
+        let lvl = player.lvl;
+
+
         ecart = 150;
         win = false;
         gameover = false;
         portee = new Portee(); //construit une nouvelle portée
         portee.createBoard(); //dessine la portée
         portee.createCle(); //dessine la clé de sol
+        portee.createHelp(); //dessine la portée d'aide
 
-        player = new Player(lvlNum); //construit un nouveau player
-        console.log(player);
-        let lvl = player.lvl;
 
         note = new Note();
         color = note.color;
         note.noteName();
         note.drawNote(color); // active l'interface utilisateur
+
+        //dessine les notes d'aide
+        miniDo = new MiniNotes('Do', 'red', 1030, 187 );
+        miniDo.drawMiniNote();
+        miniRe = new MiniNotes('Re', 'orange', 1080, 174 );
+        miniRe.drawMiniNote();
+        miniMi = new MiniNotes('Mi', 'yellow', 1130, 161 );
+        miniMi.drawMiniNote();
+        miniFa = new MiniNotes('Fa', 'green', 1180, 150 );
+        miniFa.drawMiniNote();
+        miniSol = new MiniNotes('Sol', 'cyan', 1230, 138 );
+        miniSol.drawMiniNote();
+        miniLa = new MiniNotes('La', 'indigo', 1280, 124 );
+        miniLa.drawMiniNote();
+        miniSi = new MiniNotes('Si', 'magenta', 1330, 110 );
+        miniSi.drawMiniNote();
+
 
         player.randomMelody(lvl); // créé la mélodie a trouver
 
@@ -101,7 +129,7 @@ document.addEventListener('keydown', (event) => {
                 if (player.checkNote(index)) {
                     player.score++; //on ajoute 1 point
                     index++; // on passe a la note suivante
-                    portee.x += 155;
+                    portee.x += 149;
                     portee.createBoard(); //animation
                     //on verifie si win
                     if (player.checkWin()) {
@@ -110,7 +138,7 @@ document.addEventListener('keydown', (event) => {
                     }
                     note = new Note; // on créé une nouvelle note de comparaison
                     note.x += ecart; // qui sera décalé sur la portée
-                    ecart += 135;
+                    ecart += 130;
                     note.noteName();
                     color = note.color;
                     note.drawNote(color);
