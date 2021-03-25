@@ -91,7 +91,7 @@ document.addEventListener('keydown', (event) => {
                 if (player.checkNote(index)) {
                     player.score++; //on ajoute 1 point
                     index++; // on passe a la note suivante
-                    portee.x += 180;
+                    portee.x += 155;
                     portee.createBoard(); //animation
                     //on verifie si win
                     if (player.checkWin()) {
@@ -100,7 +100,7 @@ document.addEventListener('keydown', (event) => {
                     }
                     note = new Note; // on créé une nouvelle note de comparaison
                     note.x += ecart; // qui sera décalé sur la portée
-                    ecart += 160;
+                    ecart += 135;
                     note.noteName();
                     color = note.color;
                     note.drawNote(color);

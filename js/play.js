@@ -105,8 +105,15 @@ class Player {
                 }
             }
             // si lvl 2, 5 notes aléatoire sur 5 notes avec juste une tierce sinon ça se suit
-        }
+        } else if (lvl === 2){
+            console.log('on réfléchi')
         // si lvl 3 , toutes les notes, pas d'écart spécial
+        } else if(lvl === 3){
+            for (let i = 0; i < 6; i++){
+                let note = this.notes[random(this.notes)];
+                this.melody.push(note);
+            }
+        }
     }
 
     // fonction pour jouer la mélodie
