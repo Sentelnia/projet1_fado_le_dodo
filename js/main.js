@@ -57,6 +57,16 @@ play.addEventListener("click", () => {
 
 });
 
+/*
+************
+event replay
+************
+*/
+let replay = document.querySelector(".replay");
+
+replay.addEventListener("click", () =>{
+    player.playMelody(player.melody);
+})
 
 /*
 *************
