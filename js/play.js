@@ -1,45 +1,3 @@
-/*
-****************
-Le son des notes
-****************
-
-***trompette***
-*/
-//Do
-let noteDo = document.createElement("audio");
-noteDo.id = "do";
-noteDo.src = "audio/trompette/do.mp3";
-
-//Ré
-let noteRe = document.createElement("audio");
-noteRe.id = "re";
-noteRe.src = "audio/trompette/re.mp3";
-
-//Mi
-let noteMi = document.createElement("audio");
-noteMi.id = "mi";
-noteMi.src = "audio/trompette/mi.mp3";
-
-//Fa
-let noteFa = document.createElement("audio");
-noteFa.id = "fa";
-noteFa.src = "audio/trompette/fa.mp3";
-
-//Sol
-let noteSol = document.createElement("audio");
-noteSol.id = "sol";
-noteSol.src = "audio/trompette/sol.mp3";
-
-//La
-let noteLa = document.createElement("audio");
-noteLa.id = "la";
-noteLa.src = "audio/trompette/la.mp3";
-
-//Si
-let noteSi = document.createElement("audio");
-noteSi.id = "si";
-noteSi.src = "audio/trompette/si.mp3";
-
 /* 
 *************
 objet player
@@ -104,12 +62,30 @@ class Player {
                     }
                 }
             }
-            // si lvl 2, 5 notes aléatoire sur 5 notes avec juste une tierce sinon ça se suit
-        } else if (lvl === 2){
-            console.log('on réfléchi')
-        // si lvl 3 , toutes les notes, pas d'écart spécial
-        } else if(lvl === 3){
-            for (let i = 0; i < 6; i++){
+            // si lvl 2, 5 notes aléatoire sur 3 notes qui ne se suivent pas forcement
+        } else if (lvl === 2) {
+            index = random(this.notes);
+            var newArr;
+            if (index >= 1 && index <= 5) {
+                newArr = [
+                    this.notes[index - 1],
+                    this.notes[index],
+                    this.notes[index + 1],
+                ];
+            } else if (index < 1) {
+                newArr = [
+                    this.notes[index],
+                    this.notes[index + 1],
+                    this.notes[index + 2],
+                ];
+            }
+        for (let i = 0; i < 5; i++) {
+            let note = newArr[random(newArr)];
+            this.melody.push(note);
+        }
+            // si lvl 3 , toutes les notes, pas d'écart spécial
+        } else if (lvl === 3) {
+            for (let i = 0; i < 6; i++) {
                 let note = this.notes[random(this.notes)];
                 this.melody.push(note);
             }

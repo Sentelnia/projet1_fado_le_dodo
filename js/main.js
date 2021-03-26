@@ -115,14 +115,11 @@ let canvasTop = canvas.offsetTop + canvas.clientTop;
 
 canvas.addEventListener('click', (event) =>{
      var x = event.pageX - canvasLeft;
-     console.log(x);
      
      var y = event.pageY - canvasTop;
-     console.log(y)
      
      miniNoteArr.forEach((e)=>{
          if (y > e.top() && y < e.top() + 25 && x > e.left() && x < e.left() + 25){
-             console.log(e.name)
              e.son.play();
          }
      })
