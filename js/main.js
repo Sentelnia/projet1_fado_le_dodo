@@ -14,6 +14,8 @@ let miniFa;
 let miniSol;
 let miniLa;
 let miniSi;
+let miniNoteArr = []
+
 
 /*
 *******************************
@@ -60,19 +62,33 @@ play.addEventListener("click", () => {
 
         //dessine les notes d'aide
         miniDo = new MiniNotes('Do', 'red', 1030, 187 );
+        miniDo.son = noteDo;
         miniDo.drawMiniNote();
+        miniNoteArr.push(miniDo);
         miniRe = new MiniNotes('Re', 'orange', 1080, 174 );
         miniRe.drawMiniNote();
+        miniRe.son = noteRe;
+        miniNoteArr.push(miniRe);
         miniMi = new MiniNotes('Mi', 'yellow', 1130, 161 );
         miniMi.drawMiniNote();
+        miniMi.son = noteMi;
+        miniNoteArr.push(miniMi);
         miniFa = new MiniNotes('Fa', 'green', 1180, 150 );
         miniFa.drawMiniNote();
+        miniFa.son = noteFa;
+        miniNoteArr.push(miniFa);
         miniSol = new MiniNotes('Sol', 'cyan', 1230, 138 );
         miniSol.drawMiniNote();
+        miniSol.son = noteSol;
+        miniNoteArr.push(miniSol);
         miniLa = new MiniNotes('La', 'indigo', 1280, 124 );
         miniLa.drawMiniNote();
+        miniLa.son = noteLa;
+        miniNoteArr.push(miniLa);
         miniSi = new MiniNotes('Si', 'magenta', 1330, 110 );
         miniSi.drawMiniNote();
+        miniSi.son = noteSi;
+        miniNoteArr.push(miniSi);
 
 
         player.randomMelody(lvl); // créé la mélodie a trouver
@@ -84,6 +100,34 @@ play.addEventListener("click", () => {
     }
 
 });
+
+
+/*
+***********************
+event notes mini portée
+***********************
+*/
+let canvas = document.getElementById("portee");
+
+//delimite le canvas
+let canvasLeft = canvas.offsetLeft + canvas.clientLeft;
+let canvasTop = canvas.offsetTop + canvas.clientTop;
+
+canvas.addEventListener('click', (event) =>{
+     var x = event.pageX - canvasLeft;
+     console.log(x);
+     
+     var y = event.pageY - canvasTop;
+     console.log(y)
+     
+     miniNoteArr.forEach((e)=>{
+         if (y > e.top() && y < e.top() + 25 && x > e.left() && x < e.left() + 25){
+             console.log(e.name)
+             e.son.play();
+         }
+     })
+}, false)
+
 
 /*
 ************

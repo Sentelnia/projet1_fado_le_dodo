@@ -8,7 +8,7 @@ class Portee {
     createBoard(){
         this.y = 500;
         // portée vide
-        this.ctx.clearRect(this.x,210,1400,600);
+        this.ctx.clearRect(this.x,230,1400,600);
         //lignes
         this.ctx.lineWidth = 5;
         for (let i = 0; i < 5; i++){

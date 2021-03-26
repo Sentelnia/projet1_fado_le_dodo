@@ -88,6 +88,7 @@ class MiniNotes{
         this.color = color;
         this.y = y;
         this.x = x;
+        this.son = "";
     }
 
     drawMiniNote(){
@@ -109,6 +110,15 @@ class MiniNotes{
 
         this.ctx.strokeStyle = 'black'
     }
+
+    top(){
+        return this.y - 15
+    }
+
+    left(){
+        return this.x - 15
+    }
+        
 }
 
 
