@@ -75,7 +75,7 @@ play.addEventListener("click", () => {
         portee = new Portee(); //construit une nouvelle portée
         portee.createBoard(); //dessine la portée
         portee.createCle(); //dessine la clé de sol
-        dodo.drawDodo(250, 115); //dessine le dodo
+        dodo.drawDodo(250, 115, "Essais:", player.essai); //dessine le dodo
         portee.createHelp(); //dessine la portée d'aide
 
 
@@ -226,6 +226,7 @@ document.addEventListener('keydown', (event) => {
                     if (player.checkWin()) {
                         play.classList.remove('valid');
                         play.classList.add('play') //on peut réutiliser le bouton new melody
+                        dodo.drawDodo(250, 115, "Bravo !","");
                         return win = true;
                     }
                     note = new Note; // on créé une nouvelle note de comparaison
@@ -236,11 +237,14 @@ document.addEventListener('keydown', (event) => {
                     note.drawNote(color);
                 } else {
                     player.essai--; //on enlève un essai
+                    dodo.drawDodo(250, 115, "Essais:", player.essai); //dessine le dodo
                     //on verifie game over
                     if (player.checkGameOver()) {
                         play.classList.remove('valid');
                         play.classList.add('play') //on peut réutiliser le bouton new melody
+                        dodo.drawDodo(250, 115, "Game", "Over");
                         return gameover = true;
+        
                     }
                 }
                 break;

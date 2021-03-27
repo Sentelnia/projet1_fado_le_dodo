@@ -14,7 +14,7 @@ body {
 
 #container{
     margin: 0px 10vw;
-    height : 90vh;
+    height : 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,7 +32,7 @@ button {
 #music {
     background: none;
     display: flex;
-    width: 65vw;
+    width: 70vw;
     justify-content: space-between;
     
 }
@@ -65,4 +65,31 @@ button {
 
 .valid{
     background-color: rgba(134, 21, 134, 0.25);
+}
+
+#portee{
+    
+}
+
+.instruction{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    border: 1px solid green;
+    
+}
+
+.on .un{
+    position: absolute;
+    top : 10vh;
+    left: 20vw;
+    width: 25vw;
+    height: 25vh;
+    border: 1px solid blue;
+}
+
+.on > img{
+    width: 10vw;
 }
