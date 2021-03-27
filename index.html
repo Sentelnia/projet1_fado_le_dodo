@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Fado le dodo</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
-  </head>
-  <body>
-    <div id = container>
-        <div id= 'choiceLevel'>
-            <button class="lvl" type="button">lvl 1</button>
-            <button class="lvl" type="button">lvl 2</button>
-            <button class="lvl" type="button">lvl 3</button>
-        </div>
-        <div>
-            <canvas id="portee" height="600px" width="1400px"></canvas>
-        </div>
 
-        <div id = 'controls'>
-        <button id ="newMelody" class="play" type="button">New Melody</button>
-        <button  class="replay" type="button">Replay</button>
+<head>
+  <meta charset="UTF-8" />
+  <title>Fado le dodo</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+
+<body>
+  <div id=background>
+    <div id=container>
+      <div id='choiceLevel'>
+        <button class="lvl" type="button">Level 1</button>
+        <button class="lvl" type="button">Level 2</button>
+        <button class="lvl" type="button">Level 3</button>
+      </div>
+      <div>
+        <canvas id="portee" height="600px" width="1400px"></canvas>
       </div>
 
+      <div id='music'>
+        <button id="newMelody" class="play" type="button">Nouvelle mélodie</button>
+        <button class="replay" type="button">Replay</button>
+        <div id=controls>
+          <h3>Contrôles clavier</h3>
+          <section>
+            <div class='fleche'>
+              <img src='images/flecheHaut.jpg' alt='flecheHaut'>
+              <p>Monte la note</p>
+            </div>
+            <div class='fleche'>
+              <img src='images/flecheBas.jpg' alt='flecheBas'>
+              <p>Descend la note</p>
+            </div>
+            <div class='fleche'>
+              <img src='images/flecheDroit.jpg' alt='flecheDroit'>
+              <p>Valide la note</p>
+            </div>
+          </section>
+        </div>
+      </div>
+      <footer></footer>
     </div>
-    
-    <script src="js/sons.js"></script>
-    <script src="js/play.js"></script>
-    <script src="js/portee.js"></script>
-    <script src="js/note.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+  </div>
+
+  <script src="js/sons.js"></script>
+  <script src="js/play.js"></script>
+  <script src="js/portee.js"></script>
+  <script src="js/dodo.js"></script>
+  <script src="js/note.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

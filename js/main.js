@@ -1,5 +1,5 @@
 let player;
-let lvlNum; //choix du niveau
+let elNum; //choix du niveau
 let portee;
 let note;
 let color;
@@ -14,18 +14,35 @@ let miniFa;
 let miniSol;
 let miniLa;
 let miniSi;
-let miniNoteArr = []
+let miniNoteArr = [];
+let dodo;
+let replay = document.querySelector(".replay");
+let play = document.querySelector("#newMelody");
+let lvls = document.querySelectorAll(".lvl");
 
 
+dodo = new Dodo; // construit le dodo
 /*
 *******************************
 event startgame avec le bon lvl
 *******************************
 */
 
-document.querySelectorAll(".lvl").forEach((lvl) => {
-    lvl.addEventListener("click", () => {
-        lvlNum = +lvl.innerHTML[4]; //prend le numero du niveau
+lvls.forEach((el) => {
+    //remet les bouton en background white
+    el.addEventListener("click", () => {
+
+        if (el.className === 'lvl') {
+
+            lvls.forEach((e) => {
+                e.classList.remove('valid')
+            })
+            //met un background violet sur le bouton
+            elNum = +el.innerHTML[6]; //prend le numero du niveau 
+            el.classList.add('valid');
+            play.classList.add('play');
+            play.classList.remove('valid');
+        }
     });
 });
 
@@ -35,13 +52,19 @@ event play
 **********
 */
 
-let play = document.querySelector("#newMelody");
+
 
 play.addEventListener("click", () => {
 
     if (play.className === 'play') {
+        //ajoute le background violet
+        play.classList.add('valid');
+        replay.classList.toggle("replay");
+        lvls.forEach((e) => {
+            e.classList.remove('lvl')
+        })
 
-        player = new Player(lvlNum); //construit un nouveau player
+        player = new Player(elNum); //construit un nouveau player
         console.log(player);
         let lvl = player.lvl;
 
@@ -52,6 +75,7 @@ play.addEventListener("click", () => {
         portee = new Portee(); //construit une nouvelle portée
         portee.createBoard(); //dessine la portée
         portee.createCle(); //dessine la clé de sol
+        dodo.drawDodo(250, 115); //dessine le dodo
         portee.createHelp(); //dessine la portée d'aide
 
 
@@ -61,31 +85,31 @@ play.addEventListener("click", () => {
         note.drawNote(color); // active l'interface utilisateur
 
         //dessine les notes d'aide
-        miniDo = new MiniNotes('Do', 'red', 1030, 187 );
+        miniDo = new MiniNotes('Do', 'red', 1030, 187);
         miniDo.son = noteDo;
         miniDo.drawMiniNote();
         miniNoteArr.push(miniDo);
-        miniRe = new MiniNotes('Re', 'orange', 1080, 174 );
+        miniRe = new MiniNotes('Re', 'orange', 1080, 174);
         miniRe.drawMiniNote();
         miniRe.son = noteRe;
         miniNoteArr.push(miniRe);
-        miniMi = new MiniNotes('Mi', 'yellow', 1130, 161 );
+        miniMi = new MiniNotes('Mi', 'yellow', 1130, 161);
         miniMi.drawMiniNote();
         miniMi.son = noteMi;
         miniNoteArr.push(miniMi);
-        miniFa = new MiniNotes('Fa', 'green', 1180, 150 );
+        miniFa = new MiniNotes('Fa', 'green', 1180, 150);
         miniFa.drawMiniNote();
         miniFa.son = noteFa;
         miniNoteArr.push(miniFa);
-        miniSol = new MiniNotes('Sol', 'cyan', 1230, 138 );
+        miniSol = new MiniNotes('Sol', 'cyan', 1230, 138);
         miniSol.drawMiniNote();
         miniSol.son = noteSol;
         miniNoteArr.push(miniSol);
-        miniLa = new MiniNotes('La', 'indigo', 1280, 124 );
+        miniLa = new MiniNotes('La', 'indigo', 1280, 124);
         miniLa.drawMiniNote();
         miniLa.son = noteLa;
         miniNoteArr.push(miniLa);
-        miniSi = new MiniNotes('Si', 'magenta', 1330, 110 );
+        miniSi = new MiniNotes('Si', 'magenta', 1330, 110);
         miniSi.drawMiniNote();
         miniSi.son = noteSi;
         miniNoteArr.push(miniSi);
@@ -97,6 +121,14 @@ play.addEventListener("click", () => {
 
         index = 0;
         play.classList.remove('play')
+        setTimeout(() => {
+            replay.classList.toggle("replay");
+            lvls.forEach((e) => {
+                e.classList.add('lvl')
+            })
+        }, 9000);
+
+
     }
 
 });
@@ -113,16 +145,16 @@ let canvas = document.getElementById("portee");
 let canvasLeft = canvas.offsetLeft + canvas.clientLeft;
 let canvasTop = canvas.offsetTop + canvas.clientTop;
 
-canvas.addEventListener('click', (event) =>{
-     var x = event.pageX - canvasLeft;
-     
-     var y = event.pageY - canvasTop;
-     
-     miniNoteArr.forEach((e)=>{
-         if (y > e.top() && y < e.top() + 25 && x > e.left() && x < e.left() + 25){
-             e.son.play();
-         }
-     })
+canvas.addEventListener('click', (event) => {
+    var x = event.pageX - canvasLeft;
+
+    var y = event.pageY - canvasTop;
+
+    miniNoteArr.forEach((e) => {
+        if (y > e.top() && y < e.top() + 25 && x > e.left() && x < e.left() + 25) {
+            e.son.play();
+        }
+    })
 }, false)
 
 
@@ -131,10 +163,28 @@ canvas.addEventListener('click', (event) =>{
 event replay
 ************
 */
-let replay = document.querySelector(".replay");
 
-replay.addEventListener("click", () =>{
-    player.playMelody(player.melody);
+
+replay.addEventListener("click", () => {
+    if (replay.className === "replay") {
+        replay.classList.toggle('valid');
+        replay.classList.toggle("replay");
+        lvls.forEach((e) => {
+            e.classList.remove('lvl')
+        })
+
+
+        player.playMelody(player.melody);
+
+        setTimeout(() => {
+            replay.classList.toggle('valid');
+            replay.classList.toggle("replay");
+            lvls.forEach((e) => {
+                e.classList.add('lvl')
+            })
+        }, 9000);
+    }
+
 })
 
 /*
@@ -174,7 +224,8 @@ document.addEventListener('keydown', (event) => {
                     portee.createBoard(); //animation
                     //on verifie si win
                     if (player.checkWin()) {
-                        play.classList.add('play')//on peut réutiliser le bouton new melody
+                        play.classList.remove('valid');
+                        play.classList.add('play') //on peut réutiliser le bouton new melody
                         return win = true;
                     }
                     note = new Note; // on créé une nouvelle note de comparaison
@@ -187,7 +238,8 @@ document.addEventListener('keydown', (event) => {
                     player.essai--; //on enlève un essai
                     //on verifie game over
                     if (player.checkGameOver()) {
-                        play.classList.add('play')//on peut réutiliser le bouton new melody
+                        play.classList.remove('valid');
+                        play.classList.add('play') //on peut réutiliser le bouton new melody
                         return gameover = true;
                     }
                 }

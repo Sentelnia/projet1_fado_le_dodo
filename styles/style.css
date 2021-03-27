@@ -3,6 +3,7 @@ html,
 body {
   font-family: "roboto";
   margin: 0;
+  background-image:url('../images/background.jpg');
 }
 
 #choiceLevel{
@@ -12,13 +13,15 @@ body {
 }
 
 #container{
+    margin: 0px 10vw;
     height : 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 } 
 
-.lvl {
+button {
+    padding: 1%;
     margin: 5%;
     border-radius: 12px;
     border : 2px solid rgb(134, 21, 134);
@@ -26,16 +29,40 @@ body {
     font-size: 20px;
 }
 
-#controls {
-    border : none;
-    width : 5vw;
-    height: 5vh;
+#music {
     background: none;
-    margin-left : 10vw;
-
+    display: flex;
+    width: 65vw;
+    justify-content: space-between;
+    
 }
 
-#portee {
-    border: 1px solid red;
-    margin: 0;
+
+
+#controls {
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+}
+
+#controls section {
+    display : flex; 
+    width: 30vw;
+    justify-content: space-between;
+}
+
+
+.fleche{
+    display: flex;  
+}
+
+#background {
+    height : 100vh;
+    width : 100vw;
+    background: radial-gradient(white 55%, rgba(0,0,0,0) );
+}
+
+.valid{
+    background-color: rgba(134, 21, 134, 0.25);
 }
