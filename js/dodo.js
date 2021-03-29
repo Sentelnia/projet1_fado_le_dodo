@@ -16,7 +16,7 @@ class Dodo {
         this.ctx.drawImage(imgBulle, x + 140, y - 80, 225, 225/ratio);
     };
        imgBulle.src = "images/bulle.gif"
-       imgDodo.src = "images/dodo.png"
+       imgDodo.src = "images/dodoD.png"
 
     //score dans la bulle
     this.ctx.clearRect(x + 200, y - 40, 90, 50)

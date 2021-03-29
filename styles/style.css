@@ -70,8 +70,11 @@ button {
 #portee{
     
 }
+.on {
+    display: flex;
+}
 
-.instruction{
+.instructionon{
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -81,15 +84,57 @@ button {
     
 }
 
-.on .un{
+
+
+.onun > button,
+.ondeux > button,
+.ontrois > button,
+.onquatre > button,
+.oncinq > button{
+    height: 5vh;
+ }
+
+ .onun{
     position: absolute;
-    top : 10vh;
-    left: 20vw;
-    width: 25vw;
-    height: 25vh;
-    border: 1px solid blue;
+    top : 15vh;
+    left: 10vw;
+    height: 30vh;
+    display: flex;
 }
 
-.on > img{
-    width: 10vw;
+.ondeux{
+    display: flex;
+    position: absolute;
+    top : 55vh;
+    left: 10vw;
+    height: 30vh;
+    
 }
+
+.ontrois{
+    display: flex;
+    position: absolute;
+    top : 55vh;
+    left: 50vw;
+    height: 30vh;
+    
+}
+
+.onquatre{
+    display: flex;
+    position: absolute;
+    top : 15vh;
+    left: 50vw;
+    height: 30vh;
+    
+}
+
+.oncinq{
+    display: flex;
+    position: absolute;
+    top : 15vh;
+    left: 30vw;
+    height: 30vh;
+    
+}
+

@@ -188,6 +188,72 @@ replay.addEventListener("click", () => {
 })
 
 /*
+******************
+event instructions
+******************
+*/
+let instrArr=[];
+let imgArr=[];
+
+let inst = document.querySelector('.instructions')
+
+const imgonun = document.createElement("img");
+imgonun.src = 'images/instructions/choixlvl.png';
+imgArr.push(imgonun);
+const imgondeux = document.createElement("img");
+imgondeux.src = 'images/instructions/newMelody.svg.png';
+imgArr.push(imgondeux);
+const imgontrois = document.createElement("img");
+imgontrois.src = 'images/instructions/controles.svg.png';
+imgArr.push(imgontrois);
+const imgonquatre = document.createElement("img");
+imgonquatre.src = 'images/instructions/portéeAide.png';
+imgArr.push(imgonquatre);
+const imgoncinq = document.createElement("img");
+imgoncinq.src = 'images/instructions/essai.png';
+imgArr.push(imgoncinq);
+
+
+let onun = document.querySelector('.onun');
+instrArr.push(onun);
+let ondeux = document.querySelector('.ondeux');
+instrArr.push(ondeux);
+let ontrois = document.querySelector('.ontrois');
+instrArr.push(ontrois);
+let onquatre = document.querySelector('.onquatre');
+instrArr.push(onquatre);
+let oncinq = document.querySelector('.oncinq');
+instrArr.push(oncinq);
+
+let suivant = document.createElement('button');
+suivant.innerHTML ='Suivant';
+
+
+inst.addEventListener('click', () => {
+    if(inst.className === 'instructions'){
+
+        let numArr = 0
+        for (let i = 0; i < 5; i++){
+        addImg(instrArr[i], imgArr[i]);
+            //cliquer sur le bouton suivant pour faire aparaitre la prochaine instruction
+            return suivant.addEventListener('click',() =>{
+                if (i < 4){
+                deleteImg(instrArr[numArr], imgArr[numArr]);
+                addImg(instrArr[numArr+1],imgArr[numArr+1]);
+                numArr ++;
+                } else {
+                addImg(instrArr[numArr+1],imgArr[numArr+1]);
+                }
+            })
+        }
+
+    }
+})
+
+
+
+
+/*
 *************
 event clavier
 *************
@@ -253,3 +319,15 @@ document.addEventListener('keydown', (event) => {
 
 
 })
+
+// Fonction pour les instructions (ajoute image et bouton suivant)
+function addImg(numDiv, imgName){
+    numDiv.appendChild(imgName);
+    numDiv.appendChild(suivant);
+}
+
+// Fonction pour les instructions (enleve image et bouton suivant)
+function deleteImg(numDiv, imgName){
+    numDiv.removeChild(imgName);
+    numDiv.removeChild(suivant);
+}
