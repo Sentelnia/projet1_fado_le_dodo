@@ -80,7 +80,6 @@ button {
     height: 100vh;
     top: 0;
     left: 0;
-    border: 1px solid green;
     
 }
 
@@ -100,6 +99,7 @@ button {
     left: 10vw;
     height: 30vh;
     display: flex;
+    background: white;
 }
 
 .ondeux{
@@ -108,6 +108,7 @@ button {
     top : 55vh;
     left: 10vw;
     height: 30vh;
+    background: white;
     
 }
 
@@ -117,7 +118,7 @@ button {
     top : 55vh;
     left: 50vw;
     height: 30vh;
-    
+    background: white;
 }
 
 .onquatre{
@@ -126,7 +127,7 @@ button {
     top : 15vh;
     left: 50vw;
     height: 30vh;
-    
+    background: white;
 }
 
 .oncinq{
@@ -135,6 +136,6 @@ button {
     top : 15vh;
     left: 30vw;
     height: 30vh;
-    
+    background: white;
 }
 
