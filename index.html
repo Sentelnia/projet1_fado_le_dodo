@@ -8,53 +8,53 @@
 </head>
 
 <body>
-  <div id=background>
-    <div id=container>
-      <div id='choiceLevel'>
-        <button class="lvl" type="button">Level 1</button>
-        <button class="lvl" type="button">Level 2</button>
-        <button class="lvl" type="button">Level 3</button>
-      </div>
-      <div>
-        <canvas id="portee" height="600px" width="1400px"></canvas>
-        <div class= 'instructionoff'>
-          <div class = "onun">
-          </div>
-          <div class = "ondeux">
-          </div>
-          <div class = "ontrois">
-          </div>
-          <div class = "onquatre">
-          </div>
-          <div class = "oncinq">
-          </div>
-        </div>
-      </div>
 
-      <div id='music'>
-        <button id="newMelody" class="play" type="button">Nouvelle mélodie</button>
-        <button class="replay" type="button">Replay</button>
-        <div id=controls>
-          <h3>Contrôles clavier</h3>
-          <section>
-            <div class='fleche'>
-              <img src='images/flecheHaut.jpg' alt='flecheHaut'>
-              <p>Monte la note</p>
-            </div>
-            <div class='fleche'>
-              <img src='images/flecheBas.jpg' alt='flecheBas'>
-              <p>Descend la note</p>
-            </div>
-            <div class='fleche'>
-              <img src='images/flecheDroit.jpg' alt='flecheDroit'>
-              <p>Valide la note</p>
-            </div>
-          </section>
-        </div>
-        <button class="instructions" type="button">Instructions</button>
-      </div>
+  <div id=container>
+    <div id='choiceLevel'>
+      <button class="lvl" type="button">Level 1</button>
+      <button class="lvl" type="button">Level 2</button>
+      <button class="lvl" type="button">Level 3</button>
     </div>
+    <div id='game'>
+      <canvas id="portee" height="600px" width="1400px"></canvas>
+      <div class='instructionoff'></div>
+    </div>
+
+    <div id='music'>
+      <button id="newMelody" class="play" type="button">Nouvelle mélodie</button>
+      <button class="replay" type="button">Replay</button>
+      <div id=controls>
+        <h3>Contrôles clavier</h3>
+        <section>
+          <div class='fleche'>
+            <img src='images/flecheHaut.jpg' alt='flecheHaut'>
+            <p>Monte la note</p>
+          </div>
+          <div class='fleche'>
+            <img src='images/flecheBas.jpg' alt='flecheBas'>
+            <p>Descend la note</p>
+          </div>
+          <div class='fleche'>
+            <img src='images/flecheDroit.jpg' alt='flecheDroit'>
+            <p>Valide la note</p>
+          </div>
+        </section>
+      </div>
+      <button class="instructions" type="button">Instructions</button>
+    </div>
+    <footer>
+      <p>&copy This Game was created by Mathilde Tomba</p>
+      <div class='links'>
+        <a target="_blank" href="https://github.com/Sentelnia">
+          <img src='images/Octicons-mark-github.svg.png' class='logoGithub' alt='logoGithub'>
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/mathilde-tomba/">
+          <img src='images/likedinLogo.png' class='logoLikdn' alt='logoLikdn'>
+        </a>
+      </div>
+    </footer>
   </div>
+
 
   <script src="js/sons.js"></script>
   <script src="js/play.js"></script>

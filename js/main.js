@@ -192,8 +192,8 @@ replay.addEventListener("click", () => {
 event instructions
 ******************
 */
-let instrArr=[];
-let imgArr=[];
+let instrArr = [];
+let imgArr = [];
 
 let inst = document.querySelector('.instructions')
 
@@ -214,38 +214,42 @@ imgoncinq.src = 'images/instructions/essai.png';
 imgArr.push(imgoncinq);
 
 
-let onun = document.querySelector('.onun');
+let onun = document.createElement('div');
+onun.className = 'onun'
 instrArr.push(onun);
-let ondeux = document.querySelector('.ondeux');
+let ondeux = document.createElement('div');
+ondeux.className = 'ondeux'
 instrArr.push(ondeux);
-let ontrois = document.querySelector('.ontrois');
+let ontrois = document.createElement('div');
+ontrois.className = 'ontrois'
 instrArr.push(ontrois);
-let onquatre = document.querySelector('.onquatre');
+let onquatre = document.createElement('div');
+onquatre.className = 'onquatre'
 instrArr.push(onquatre);
-let oncinq = document.querySelector('.oncinq');
+let oncinq = document.createElement('div');
+oncinq.className = 'oncinq'
 instrArr.push(oncinq);
 
 let suivant = document.createElement('button');
-suivant.innerHTML ='Suivant';
+suivant.innerHTML = 'Suivant';
 
 
 inst.addEventListener('click', () => {
-    if(inst.className === 'instructions'){
-
+    if (inst.className === 'instructions') {
+        inst.classList.toggle('valid');
         let numArr = 0
-        for (let i = 0; i < 5; i++){
-        addImg(instrArr[i], imgArr[i]);
-            //cliquer sur le bouton suivant pour faire aparaitre la prochaine instruction
-            return suivant.addEventListener('click',() =>{
-                if (i < 4){
+        addImg(instrArr[numArr], imgArr[numArr]);
+        //cliquer sur le bouton suivant pour faire aparaitre la prochaine instruction
+        suivant.addEventListener('click', () => {
+            if (numArr < 4) {
                 deleteImg(instrArr[numArr], imgArr[numArr]);
-                addImg(instrArr[numArr+1],imgArr[numArr+1]);
-                numArr ++;
-                } else {
-                addImg(instrArr[numArr+1],imgArr[numArr+1]);
-                }
-            })
-        }
+                addImg(instrArr[numArr + 1], imgArr[numArr + 1]);
+                numArr++;
+            } else {
+                deleteImg(instrArr[numArr], imgArr[numArr]);
+                inst.classList.toggle('valid');
+            }
+        })
 
     }
 })
@@ -292,7 +296,7 @@ document.addEventListener('keydown', (event) => {
                     if (player.checkWin()) {
                         play.classList.remove('valid');
                         play.classList.add('play') //on peut réutiliser le bouton new melody
-                        dodo.drawDodo(250, 115, "Bravo !","");
+                        dodo.drawDodo(250, 115, "Bravo !", "");
                         return win = true;
                     }
                     note = new Note; // on créé une nouvelle note de comparaison
@@ -310,7 +314,7 @@ document.addEventListener('keydown', (event) => {
                         play.classList.add('play') //on peut réutiliser le bouton new melody
                         dodo.drawDodo(250, 115, "Game", "Over");
                         return gameover = true;
-        
+
                     }
                 }
                 break;
@@ -320,14 +324,17 @@ document.addEventListener('keydown', (event) => {
 
 })
 
+let blockInstr = document.querySelector('.instructionoff')
 // Fonction pour les instructions (ajoute image et bouton suivant)
-function addImg(numDiv, imgName){
+function addImg(numDiv, imgName) {
+    blockInstr.appendChild(numDiv)
     numDiv.appendChild(imgName);
     numDiv.appendChild(suivant);
 }
 
 // Fonction pour les instructions (enleve image et bouton suivant)
-function deleteImg(numDiv, imgName){
+function deleteImg(numDiv, imgName) {
     numDiv.removeChild(imgName);
     numDiv.removeChild(suivant);
+    blockInstr.removeChild(numDiv)
 }
