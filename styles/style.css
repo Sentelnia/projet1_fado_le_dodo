@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:100,300,700');
 
-/* @media (min-width: 1440px) { */
 
-    html,
+
+    html{
+        background-image: url('../images/background.jpg');
+    }
+
     body {
         font-family: "roboto";
         margin: 0;
-        background-image: url('../images/background.jpg');
-        background-size: cover;
+        background-image: radial-gradient(white 35%, rgba(0,0,0,0));
     }
 
     #choiceLevel {
-        margin: 0 10vw;
         width: 10vw;
         display: flex;
         flex-direction: column;
@@ -23,7 +24,7 @@
         flex-direction: column;
     }
 
-    button {
+    button, #trompette, #piano {
         margin: 3%;
         border-radius: 12px;
         border: 2px solid rgb(134, 21, 134);
@@ -32,6 +33,7 @@
     }
 
     #music {
+        
         margin: 0 10vw;
         background: none;
         display: flex;
@@ -40,8 +42,9 @@
     }
 
     #game {
-        margin: 0 10vw;
-        flex: 1
+        margin : auto;
+        flex: 1;
+        text-align: center
     }
 
     #controls {
@@ -100,10 +103,9 @@
         height: 30vh;
         width: 30vw;
         display: flex;
-        background: white;
         border-radius: 12px;
         border: 2px solid rgb(134, 21, 134);
-        background-image: url('../images/background.jpg');
+        background-image: url('../images/instrBackground.png');
         background-size: cover;
         background-repeat: no-repeat;
 
@@ -161,4 +163,17 @@
         display: flex;
         justify-content: space-between;
     }
-/* } */
+
+    #trompette, #piano{
+        width : 115px;
+        height: 115px;
+    }
+
+    .choice{
+        display:flex;
+        margin: 0 10vw;
+    }
+    #choiceInstr{
+        display: flex;
+        margin-left: auto;
+    }

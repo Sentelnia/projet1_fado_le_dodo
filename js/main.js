@@ -37,9 +37,9 @@ lvls.forEach((el) => {
             lvls.forEach((e) => {
                 e.classList.remove('valid')
             })
-            //met un background violet sur le bouton
+            
             elNum = +el.innerHTML[6]; //prend le numero du niveau 
-            el.classList.add('valid');
+            el.classList.add('valid');//met un background violet sur le bouton
             play.classList.add('play');
             play.classList.remove('valid');
         }
@@ -47,12 +47,57 @@ lvls.forEach((el) => {
 });
 
 /*
+*****************
+event instruments
+*****************
+*/
+
+
+let trump = document.querySelector('.trompette')
+let piano = document.querySelector('.piano')
+
+
+//trompette
+trump.addEventListener("click", () =>{
+    if (trump.className === 'trompette')
+    trump.classList.add('valid');
+    piano.classList.remove('valid');
+
+    //change le son des notes
+    noteDo.src = "audio/trompette/do.mp3";
+    noteRe.src = "audio/trompette/re.mp3";
+    noteMi.src = "audio/trompette/mi.mp3";
+    noteFa.src = "audio/trompette/fa.mp3";
+    noteSol.src = "audio/trompette/sol.mp3";
+    noteLa.src = "audio/trompette/la.mp3";
+    noteSi.src = "audio/trompette/si.mp3";
+
+})
+
+
+//piano
+piano.addEventListener("click", () =>{
+    if (piano.className === 'piano')
+    piano.classList.add('valid');
+    trump.classList.remove('valid');
+
+    //change le son des notes
+    noteDo.src = "audio/piano/do.mp3";
+    noteRe.src = "audio/piano/re.mp3";
+    noteMi.src = "audio/piano/mi.mp3";
+    noteFa.src = "audio/piano/fa.mp3";
+    noteSol.src = "audio/piano/sol.mp3";
+    noteLa.src = "audio/piano/la.mp3";
+    noteSi.src = "audio/piano/si.mp3";
+
+})
+
+
+/*
 **********
 event play
 **********
 */
-
-
 
 play.addEventListener("click", () => {
 
@@ -65,7 +110,6 @@ play.addEventListener("click", () => {
         })
 
         player = new Player(elNum); //construit un nouveau player
-        console.log(player);
         let lvl = player.lvl;
 
 

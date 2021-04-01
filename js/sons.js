@@ -39,3 +39,15 @@ noteLa.src = "audio/trompette/la.mp3";
 let noteSi = document.createElement("audio");
 noteSi.id = "si";
 noteSi.src = "audio/trompette/si.mp3";
+
+/*
+***piano***
+*/
+
+// noteDo.src = "audio/piano/do.mp3";
+// noteRe.src = "audio/piano/re.mp3";
+// noteMi.src = "audio/piano/mi.mp3";
+// noteFa.src = "audio/piano/fa.mp3";
+// noteSol.src = "audio/piano/sol.mp3";
+// noteLa.src = "audio/piano/la.mp3";
+// noteSi.src = "audio/piano/si.mp3";
