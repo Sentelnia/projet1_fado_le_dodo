@@ -19,9 +19,28 @@ let dodo;
 let replay = document.querySelector(".replay");
 let play = document.querySelector("#newMelody");
 let lvls = document.querySelectorAll(".lvl");
-
+let canvas = document.getElementById("portee");
 
 dodo = new Dodo; // construit le dodo
+
+
+
+/*
+*******************************
+accueil
+*******************************
+*/
+let ctx = document.getElementById('portee').getContext('2d');
+const imgAcc = document.createElement("img");
+imgAcc.onload = () => {
+    let ratio = imgAcc.naturalWidth / imgAcc.naturalHeight;
+    ctx.drawImage(imgAcc, 200, 150, 900, 900/ratio);
+};
+imgAcc.src = "images/accueil.png"
+
+
+
+
 /*
 *******************************
 event startgame avec le bon lvl
@@ -117,6 +136,7 @@ play.addEventListener("click", () => {
         win = false;
         gameover = false;
         portee = new Portee(); //construit une nouvelle portée
+        ctx.clearRect(0,0,1400,600);//efface l'écran d'accueil
         portee.createBoard(); //dessine la portée
         portee.createCle(); //dessine la clé de sol
         dodo.drawDodo(250, 115, "Essais:", player.essai); //dessine le dodo
@@ -183,7 +203,6 @@ play.addEventListener("click", () => {
 event notes mini portée
 ***********************
 */
-let canvas = document.getElementById("portee");
 
 //delimite le canvas
 let canvasLeft = canvas.offsetLeft + canvas.clientLeft;

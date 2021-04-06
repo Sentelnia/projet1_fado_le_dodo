@@ -5,6 +5,8 @@ class Portee {
         this.x = 250;
     }
 
+    
+
     createBoard(){
         this.y = 500;
         // portée vide
