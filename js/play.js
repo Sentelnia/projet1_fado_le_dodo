@@ -102,7 +102,7 @@ class Player {
             } else {
                 clearInterval(intervalID);
             }
-        }, 1275);
+        }, 1295);
     }
 
     //fonction qui compare la note choisie par le joueur par la note de l'array melody
