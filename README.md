@@ -11,6 +11,9 @@ There are 3 levels of difficulty depending on the level of music theory .
 
 This game is my first training project at IronHack. 
 
+
+<img src="/images/screen.png" alt="dodo" width="100"/>
+
 ### Set UP
 
 [Play online](https://sentelnia.github.io/projet1_fado_le_dodo/)
