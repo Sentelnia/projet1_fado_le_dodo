@@ -4,7 +4,6 @@
 # Fado le dodo
 
 ### Introduction
----
 
 Fado le dodo is a musical dictation game rather for children.
 There are 3 levels of difficulty depending on the level of music theory .
@@ -12,7 +11,9 @@ There are 3 levels of difficulty depending on the level of music theory .
 This game is my first training project at IronHack. 
 
 
-<img src="/images/screen.png" alt="dodo" width="800"/>
+<img src="/images/screen.png" alt="screenGame" width="800"/>
+
+---
 
 ### Set UP
 
@@ -27,11 +28,10 @@ This game only works on a computer and its style will be altered if the screen i
 - CSS
 - HTML
 
-
-### Contributions
 ---
+### Contributions
 
-Thanks to :
+#### Thanks to :
 
 - Caroline PETITJEAN WALECKX : music theory instructions
 - Bruno TOMBA : trumpet sounds
