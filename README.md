@@ -13,6 +13,9 @@ This game is my first training project at IronHack.
 
 ### Set UP
 
+[Play online](https://sentelnia.github.io/projet1_fado_le_dodo/)
+
+
 This game only works on a computer and its style will be altered if the screen is not big enough.
 
 ### langages
