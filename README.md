@@ -22,7 +22,7 @@ This game is my first training project at IronHack.
 
 This game only works on a computer and its style will be altered if the screen is not big enough.
 
-### langages
+### Langages
 
 - JS
 - CSS

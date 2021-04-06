@@ -24,7 +24,8 @@
         flex-direction: column;
     }
 
-    button, #trompette, #piano {
+    button {
+        padding:1%;
         margin: 3%;
         border-radius: 12px;
         border: 2px solid rgb(134, 21, 134);
@@ -32,13 +33,14 @@
         font-size: 20px;
     }
 
+
     #music {
-        
+        background: white;
         margin: 0 10vw;
         background: none;
         display: flex;
         justify-content: space-between;
-        height: 15vh;
+        
     }
 
     #game {
@@ -138,6 +140,7 @@
     }
 
     footer {
+        background: white;
         padding-top: 10px;
         display: flex;
         margin: auto;
@@ -176,4 +179,6 @@
     #choiceInstr{
         display: flex;
         margin-left: auto;
+        width : 20vw;
+        height: 8vh;
     }
